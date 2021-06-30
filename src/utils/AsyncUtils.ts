@@ -13,7 +13,7 @@ export const JsonFetchWrapper = <T>(
 ): Promise<{ data: T | null; err: boolean }> => {
   return fetch(
     `${url}${
-      urlSearchParams ? `?${new URLSearchParams(urlSearchParams || {})}` : ""
+      urlSearchParams ? `?${new URLSearchParams(urlSearchParams)}` : ""
     }`,
     {
       method,
