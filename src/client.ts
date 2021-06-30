@@ -3,7 +3,6 @@ import { botToken } from "./lib/constants";
 import { prefix } from "./lib/settings";
 import { Command, commandNames } from "./modules/commands/commands";
 import { commandSwitch } from "./modules/handlers/commandSwitch";
-import { convertToQueryString } from "./utils";
 
 const client = new Client();
 client.on("message", (message) => {

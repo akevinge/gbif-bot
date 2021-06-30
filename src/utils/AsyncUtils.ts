@@ -11,11 +11,16 @@ export const JsonFetchWrapper = <T>(
   url: string,
   { method, body, headers, urlSearchParams }: JsonFetchWrapperParams
 ): Promise<{ data: T | null; err: boolean }> => {
-  return fetch(url + new URLSearchParams(urlSearchParams || {}), {
-    method,
-    headers: { ...headers },
-    ...(method !== "GET" && { body: JSON.stringify(body || {}) }),
-  })
+  return fetch(
+    `${url}${
+      urlSearchParams ? `?${new URLSearchParams(urlSearchParams || {})}` : ""
+    }`,
+    {
+      method,
+      headers: { ...headers },
+      ...(method !== "GET" && { body: JSON.stringify(body || {}) }),
+    }
+  )
     .then(async (r) => {
       if (r.ok) {
         try {
