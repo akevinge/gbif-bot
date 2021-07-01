@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
-import { OccurrenceEmbedData } from "../../ts/types/OccurrenceMedia";
-import { TaxonEmbedData } from "../../ts/types/TaxonMedia";
+import { OccurrenceEmbedData } from "../../types/OccurrenceMedia";
+import { TaxonEmbedData } from "../../types/TaxonMedia";
 import {
   imageEmbedSender,
   occurrenceImageEmbedBuilder,
@@ -10,7 +10,7 @@ import { getOccurrenceMedia } from "../occurances/occurrenceMedia";
 import { getTaxonKeyBySciName } from "../species/matchSp";
 import { getTaxonMedia } from "../species/taxonMedia";
 
-export const imageHandler = async (
+export const imageHandler: CommandHandlerWQuery = async (
   { channel, author }: Message,
   query: string
 ) => {

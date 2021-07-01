@@ -2,6 +2,7 @@ import { Message } from "discord.js";
 import { Command } from "../commands/commands";
 import { helpHandler } from "./generalHandler";
 import { imageHandler } from "./imageHandler";
+import { rangeHandler } from "./rangeHandler";
 
 export const commandSwitch = ({
   message: { channel },
@@ -25,6 +26,11 @@ export const commandSwitch = ({
       }
       break;
     case "range":
+      if (query) {
+        rangeHandler(message, query);
+      } else {
+        channel.send("Please provide a valid scientific name");
+      }
       break;
   }
 };

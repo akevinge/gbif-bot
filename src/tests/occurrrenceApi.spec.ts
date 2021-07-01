@@ -10,7 +10,6 @@ describe("Test GBIF Occurrrence API", () => {
           const { taxonKey, scientificName } = match;
           getOccurrenceMedia({ taxonKey }).then((media) => {
             assert.isArray(media);
-            console.log(media);
             done();
           });
         }

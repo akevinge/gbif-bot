@@ -10,7 +10,7 @@ interface JsonFetchWrapperParams {
 export const JsonFetchWrapper = <T>(
   url: string,
   { method, body, headers, urlSearchParams }: JsonFetchWrapperParams
-): Promise<{ data: T | null; err: boolean }> => {
+): Promise<{ data: T | null; err: boolean | Error }> => {
   return fetch(
     `${url}${
       urlSearchParams ? `?${new URLSearchParams(urlSearchParams)}` : ""
@@ -29,7 +29,9 @@ export const JsonFetchWrapper = <T>(
           return {};
         }
       } else {
-        throw new Error();
+        throw new Error(
+          await r.json().catch((err) => "Fetch error but could not parse body")
+        );
       }
     })
     .then((data: any) => {

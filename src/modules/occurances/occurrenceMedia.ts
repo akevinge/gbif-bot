@@ -1,8 +1,8 @@
-import { gBifbaseApiUrlV1 } from "../../lib/constants";
+import { gBifBaseApiUrlV1 } from "../../lib/constants";
 import {
   OccurrenceEmbedData,
   OccurrenceMediaResult,
-} from "../../ts/types/OccurrenceMedia";
+} from "../../types/OccurrenceMedia";
 import { JsonFetchWrapper } from "../../utils";
 
 export const getOccurrenceMedia = ({
@@ -11,7 +11,7 @@ export const getOccurrenceMedia = ({
   taxonKey: string | number;
 }): Promise<OccurrenceEmbedData[]> => {
   return JsonFetchWrapper<{ results: OccurrenceMediaResult[] }>(
-    `${gBifbaseApiUrlV1}/occurrence/search`,
+    `${gBifBaseApiUrlV1}/occurrence/search`,
     {
       method: "GET",
       urlSearchParams: {
