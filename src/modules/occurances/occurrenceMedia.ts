@@ -2,7 +2,7 @@ import { gBifbaseApiUrlV1 } from "../../lib/constants";
 import {
   OccurrenceEmbedData,
   OccurrenceMediaResult,
-} from "../../ts/types/OccurrenceMedia";
+} from "../../types/OccurrenceMedia";
 import { JsonFetchWrapper } from "../../utils";
 
 export const getOccurrenceMedia = ({

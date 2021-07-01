@@ -20,4 +20,15 @@ class MapData {
   }
 }
 
-export const mapData = new MapData();
+export const cachedMapData = new MapData();
+
+export const generateCachedMapData = () => {
+  cachedMapData.generateMapData().then(() => {
+    console.log(
+      cachedMapData.easternHemisphereMapData instanceof Jimp &&
+        cachedMapData.westernHemisphereMapData instanceof Jimp
+        ? "Sucessfully generated map data"
+        : "Failed to generate map data"
+    );
+  });
+};
