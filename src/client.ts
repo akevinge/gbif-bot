@@ -3,6 +3,7 @@ import { botToken } from "./lib/constants";
 import { prefix } from "./lib/settings";
 import { Command, commandNames } from "./modules/commands/commands";
 import { commandSwitch } from "./modules/handlers/commandSwitch";
+import { formatGenusAndSpeciesName } from "./utils";
 
 const client = new Client();
 client.on("message", (message) => {
@@ -13,7 +14,7 @@ client.on("message", (message) => {
       .trim();
     const query =
       content.indexOf(" ") !== -1
-        ? content.slice(content.indexOf(" "))
+        ? formatGenusAndSpeciesName(content.slice(content.indexOf(" ") + 1))
         : undefined;
     if (commandNames.includes(command)) {
       commandSwitch({ message, command: command as Command, query });
