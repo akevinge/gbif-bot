@@ -1,7 +1,7 @@
 import { Message } from "discord.js";
 import { Command } from "../commands/commands";
 import { helpHandler } from "./generalHandler";
-import { infoHandler } from "./infoHandler";
+import { imageHandler } from "./imageHandler";
 
 export const commandSwitch = ({
   message: { channel },
@@ -17,14 +17,14 @@ export const commandSwitch = ({
     case "help":
       helpHandler(message);
       break;
-    case "info":
+    case "image":
       if (query) {
-        infoHandler(message, query);
+        imageHandler(message, query);
       } else {
         channel.send("Please provide a valid scientific name");
       }
       break;
-    case "test":
+    case "range":
       break;
   }
 };
