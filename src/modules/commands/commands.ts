@@ -4,12 +4,12 @@ export const commands = [
     function: "help",
   },
   {
-    name: "test",
-    function: "test",
+    name: "image",
+    function: "returns taxonomic and occurance images",
   },
-  { name: "info", function: "return all taxon data" },
+  { name: "range", function: "return range map" },
 ];
 
 export const commandNames = commands.map(({ name }) => name);
 
-export type Command = "help" | "test" | "info";
+export type Command = "help" | "image" | "range";
