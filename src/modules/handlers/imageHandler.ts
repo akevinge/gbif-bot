@@ -12,9 +12,8 @@ export const imageHandler = async (
     const { taxonKey, scientificName } = matchObj;
     const taxonMedias = await getTaxonMedia({ taxonKey });
     const taxonImageEmbds = taxonMedias.map((taxonMedia) =>
-      taxonImageEmbedBuilder(taxonMedia)
+      taxonImageEmbedBuilder({ ...taxonMedia, sciName: scientificName })
     );
     imageEmbedSender({ channel, author, embeds: taxonImageEmbds });
-    channel.send(query);
   }
 };

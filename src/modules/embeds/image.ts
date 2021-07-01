@@ -5,9 +5,11 @@ import { TaxonEmbedData } from "../../ts/types/TaxonMediaResult";
 export const taxonImageEmbedBuilder = ({
   identifier,
   references,
-}: TaxonEmbedData) => {
+  sciName,
+}: TaxonEmbedData & { sciName: string }) => {
   return new MessageEmbed()
     .setTitle("Taxonomic Image")
+    .setDescription(sciName)
     .setURL(references)
     .setImage(identifier);
 };
