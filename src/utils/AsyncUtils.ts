@@ -29,8 +29,9 @@ export const JsonFetchWrapper = <T>(
           return {};
         }
       } else {
-        console.log(await r.json(), r);
-        throw new Error();
+        throw new Error(
+          await r.json().catch((err) => "Fetch error but could not parse body")
+        );
       }
     })
     .then((data: any) => {
