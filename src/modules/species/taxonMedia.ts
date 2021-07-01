@@ -1,4 +1,4 @@
-import { gBifbaseApiUrlV1 } from "../../lib/constants";
+import { gBifBaseApiUrlV1 } from "../../lib/constants";
 import { JsonFetchWrapper } from "../../utils";
 import { TaxonMediaResult, TaxonEmbedData } from "../../types/TaxonMedia";
 
@@ -8,7 +8,7 @@ export const getTaxonMedia = ({
   taxonKey: string | number;
 }): Promise<TaxonEmbedData[]> => {
   return JsonFetchWrapper<{ results: TaxonMediaResult[] }>(
-    `${gBifbaseApiUrlV1}/species/${taxonKey}/media`,
+    `${gBifBaseApiUrlV1}/species/${taxonKey}/media`,
     {
       method: "GET",
     }

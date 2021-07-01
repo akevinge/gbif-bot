@@ -10,7 +10,7 @@ interface JsonFetchWrapperParams {
 export const JsonFetchWrapper = <T>(
   url: string,
   { method, body, headers, urlSearchParams }: JsonFetchWrapperParams
-): Promise<{ data: T | null; err: boolean }> => {
+): Promise<{ data: T | null; err: boolean | Error }> => {
   return fetch(
     `${url}${
       urlSearchParams ? `?${new URLSearchParams(urlSearchParams)}` : ""
@@ -29,6 +29,7 @@ export const JsonFetchWrapper = <T>(
           return {};
         }
       } else {
+        console.log(await r.json(), r);
         throw new Error();
       }
     })

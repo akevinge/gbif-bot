@@ -1,5 +1,5 @@
 import { JsonFetchWrapper } from "../../utils";
-import { gBifbaseApiUrlV1 } from "../../lib/constants";
+import { gBifBaseApiUrlV1 } from "../../lib/constants";
 import { limitKingdom, limitPhylum } from "../../lib/settings";
 
 export const getTaxonKeyBySciName = ({
@@ -12,7 +12,7 @@ export const getTaxonKeyBySciName = ({
     matchType: string;
     confidence: number;
     scientificName: string;
-  }>(`${gBifbaseApiUrlV1}/species/match`, {
+  }>(`${gBifBaseApiUrlV1}/species/match`, {
     method: "GET",
     urlSearchParams: {
       kingdom: limitKingdom,

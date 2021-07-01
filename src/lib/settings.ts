@@ -22,11 +22,4 @@ export const mapStyle:
   | "red.poly "
   | "blue.marker "
   | "orange.marker "
-  | "outline.poly" = "iNaturalist.poly";
-
-export const mapSize:
-  | "@Hx.png"
-  | "@1x.png"
-  | "@2x.png"
-  | "@3x.png"
-  | "@4x.png" = "@1x.png";
+  | "outline.poly" = "classic.poly";
