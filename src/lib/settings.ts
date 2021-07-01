@@ -23,3 +23,4 @@ export const mapStyle:
   | "blue.marker "
   | "orange.marker "
   | "outline.poly" = "classic.poly";
+export const embedColor = 0x0fdb68;

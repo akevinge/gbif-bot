@@ -1,4 +1,5 @@
 import { MessageEmbed } from "discord.js";
+import { embedColor } from "../../lib/settings";
 
 type RangeEmbedBuilderParams = {
   image: string;
@@ -11,6 +12,7 @@ export const rangeEmbedBuilder = ({
 }: RangeEmbedBuilderParams): MessageEmbed => {
   return new MessageEmbed()
     .setTitle(scientificName)
+    .setColor(embedColor)
     .setImage(image)
     .setURL(image);
 };

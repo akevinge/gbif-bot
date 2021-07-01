@@ -5,9 +5,13 @@ export const commands = [
   },
   {
     name: "image",
-    function: "returns taxonomic and occurance images",
+    function:
+      "Returns taxonomic and occurance images for the given scientific name",
   },
-  { name: "range", function: "return range map" },
+  {
+    name: "range",
+    function: "Displays a distribution map for the given scientific name",
+  },
 ];
 
 export const commandNames = commands.map(({ name }) => name);

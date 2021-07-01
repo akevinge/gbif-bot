@@ -2,6 +2,7 @@ import { Message, MessageEmbed } from "discord.js";
 import { embedPagination } from "./pagination";
 import { TaxonEmbedData } from "../../types/TaxonMedia";
 import { OccurrenceEmbedData } from "../../types/OccurrenceMedia";
+import { embedColor } from "../../lib/settings";
 
 export const taxonImageEmbedBuilder = ({
   identifier,
@@ -26,6 +27,7 @@ export const occurrenceImageEmbedBuilder = ({
 }: OccurrenceEmbedData) => {
   return new MessageEmbed()
     .setTitle("Occurrence Image")
+    .setColor(embedColor)
     .setDescription(scientificName)
     .setURL(occurrenceID)
     .setImage(identifier)

@@ -1,5 +1,5 @@
 import { Client } from "discord.js";
-import { botToken } from "./lib/constants";
+import { botToken, isProduction } from "./lib/constants";
 import { prefix } from "./lib/settings";
 import { Command, commandNames } from "./modules/commands/commands";
 import { commandSwitch } from "./modules/handlers/commandSwitch";
@@ -25,7 +25,17 @@ client.on("message", (message) => {
 });
 
 client.on("ready", () => {
-  console.log("bot running");
+  client.user?.setPresence({
+    activity: {
+      name: ".help",
+      type: "WATCHING",
+    },
+    status: "online",
+  });
+  if (isProduction) {
+    client.user?.setAvatar("https://unsplash.com/photos/9a9Xu9lXA7A");
+  }
+  console.log("Bot running");
 });
 
 export const runBot = () => client.login(botToken);
