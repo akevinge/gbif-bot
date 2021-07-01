@@ -1,10 +1,10 @@
 import { getTaxonKeyBySciName } from "../modules/species/matchSp";
-import { expect, assert } from "chai";
+import { assert } from "chai";
 import { getTaxonMedia } from "../modules/species/taxonMedia";
 
 describe("Test GBIF Species API", () => {
   it("Get TakonKey using /species/match", (done) => {
-    getTaxonKeyBySciName({ sciName: "Solenopsis" })
+    getTaxonKeyBySciName({ sciName: "Camponotus discolor" })
       .then((match) => {
         if (match) {
           const { scientificName, taxonKey } = match;

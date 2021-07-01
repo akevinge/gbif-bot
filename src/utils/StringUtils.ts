@@ -1,7 +1,3 @@
-export const convertToQueryString = (str: string) => {
-  return str.replace(/ /g, "%20");
-};
-
 export const formatGenusName = (str: string) => {
   return `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`;
 };

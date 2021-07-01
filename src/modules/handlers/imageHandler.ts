@@ -1,5 +1,12 @@
 import { Message } from "discord.js";
-import { imageEmbedSender, taxonImageEmbedBuilder } from "../embeds/image";
+import { OccurrenceEmbedData } from "../../ts/types/OccurrenceMedia";
+import { TaxonEmbedData } from "../../ts/types/TaxonMedia";
+import {
+  imageEmbedSender,
+  occurrenceImageEmbedBuilder,
+  taxonImageEmbedBuilder,
+} from "../embeds/image";
+import { getOccurrenceMedia } from "../occurances/occurrenceMedia";
 import { getTaxonKeyBySciName } from "../species/matchSp";
 import { getTaxonMedia } from "../species/taxonMedia";
 
@@ -10,10 +17,24 @@ export const imageHandler = async (
   const matchObj = await getTaxonKeyBySciName({ sciName: query });
   if (matchObj) {
     const { taxonKey, scientificName } = matchObj;
-    const taxonMedias = await getTaxonMedia({ taxonKey });
-    const taxonImageEmbds = taxonMedias.map((taxonMedia) =>
+
+    const [taxonMedia, occurrenceMedia] = await Promise.all<
+      TaxonEmbedData[],
+      OccurrenceEmbedData[]
+    >([getTaxonMedia({ taxonKey }), getOccurrenceMedia({ taxonKey })]);
+
+    const taxonImageEmbds = taxonMedia.map((taxonMedia) =>
       taxonImageEmbedBuilder({ ...taxonMedia, sciName: scientificName })
     );
-    imageEmbedSender({ channel, author, embeds: taxonImageEmbds });
+
+    const occurrenceImageEmbeds = occurrenceMedia.map((occMedia) =>
+      occurrenceImageEmbedBuilder(occMedia)
+    );
+
+    imageEmbedSender({
+      channel,
+      author,
+      embeds: [...taxonImageEmbds, ...occurrenceImageEmbeds],
+    });
   }
 };

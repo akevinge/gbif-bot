@@ -1,9 +1,6 @@
 import { gBifbaseApiUrlV1 } from "../../lib/constants";
 import { JsonFetchWrapper } from "../../utils";
-import {
-  TaxonMediaResult,
-  TaxonEmbedData,
-} from "../../ts/types/TaxonMediaResult";
+import { TaxonMediaResult, TaxonEmbedData } from "../../ts/types/TaxonMedia";
 
 export const getTaxonMedia = ({
   taxonKey,
