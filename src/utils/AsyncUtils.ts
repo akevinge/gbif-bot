@@ -1,8 +1,9 @@
 import fetch from "node-fetch";
+import FormData from "form-data";
 
 interface JsonFetchWrapperParams {
   method: "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
-  body?: object;
+  body?: object | FormData;
   headers?: object;
   urlSearchParams?: { [i: string]: any };
 }
@@ -18,7 +19,10 @@ export const JsonFetchWrapper = <T>(
     {
       method,
       headers: { ...headers },
-      ...(method !== "GET" && { body: JSON.stringify(body || {}) }),
+      ...(method !== "GET" &&
+        (body instanceof FormData
+          ? { body }
+          : { body: JSON.stringify(body || {}) })),
     }
   )
     .then(async (r) => {
@@ -29,9 +33,9 @@ export const JsonFetchWrapper = <T>(
           return {};
         }
       } else {
-        throw new Error(
-          await r.json().catch((err) => "Fetch error but could not parse body")
-        );
+        throw await r
+          .json()
+          .catch(() => new Error("Fetch error but could not parse body"));
       }
     })
     .then((data: any) => {

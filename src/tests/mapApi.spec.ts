@@ -1,14 +1,29 @@
 import { assert } from "chai";
-import { genOccMapLinkWithTaxonKey } from "../modules/maps/genOccMapLink";
+import { compositeOccMap } from "../modules/maps/compositeOccMap";
+import { getTaxonKeyBySciName } from "../modules/species/matchSp";
+import { postUploadImage } from "../modules/image-upload/imgbb";
 
 describe("Test GBIF Map API", () => {
   it("generate map link", (done) => {
-    const link = genOccMapLinkWithTaxonKey({
-      taxonKey: 1,
-      coords: { z: 0, x: 0, y: 0 },
-    });
-    assert(typeof link === "string");
-    assert(link.endsWith("1"));
-    done();
+    getTaxonKeyBySciName({ sciName: "atta texana" })
+      .then((matchObj) => {
+        if (matchObj) {
+          return matchObj;
+        } else {
+          throw new Error("failed to get taxon key");
+        }
+      })
+      .then(async (matchObj) => {
+        const map = await compositeOccMap({ taxonKey: matchObj.taxonKey });
+        if (map) {
+          const link = await postUploadImage({
+            image: map,
+            title: matchObj.scientificName,
+          });
+          console.log(link);
+          assert(typeof link === "string");
+          done();
+        }
+      });
   });
 });
