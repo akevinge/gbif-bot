@@ -1,6 +1,6 @@
-import { JsonFetchWrapper } from "../../utils";
-import { gBifBaseApiUrlV1 } from "../../lib/constants";
-import { limitKingdom, limitPhylum } from "../../lib/settings";
+import { JsonFetchWrapper } from "../../../utils";
+import { gBifBaseApiUrlV1 } from "../../../lib/constants";
+import { limitKingdom, limitPhylum } from "../../../lib/settings";
 
 export const getTaxonKeyBySciName = ({
   sciName,
@@ -16,7 +16,6 @@ export const getTaxonKeyBySciName = ({
     method: "GET",
     urlSearchParams: {
       kingdom: limitKingdom,
-      phylum: limitPhylum,
       genus: sciName,
     },
   })

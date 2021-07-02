@@ -1,9 +1,9 @@
-import { gBifBaseApiUrlV1 } from "../../lib/constants";
+import { gBifBaseApiUrlV1 } from "../../../lib/constants";
 import {
   OccurrenceEmbedData,
   OccurrenceMediaResult,
-} from "../../types/OccurrenceMedia";
-import { JsonFetchWrapper } from "../../utils";
+} from "../../../types/gbif/OccurrenceMedia";
+import { JsonFetchWrapper } from "../../../utils";
 
 export const getOccurrenceMedia = ({
   taxonKey,

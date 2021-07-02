@@ -1,6 +1,6 @@
-import { getTaxonKeyBySciName } from "../modules/species/matchSp";
-import { assert } from "chai";
-import { getTaxonMedia } from "../modules/species/taxonMedia";
+import { getTaxonKeyBySciName } from "../modules/gbif/species/matchSp";
+import { assert, expect } from "chai";
+import { getTaxonMedia } from "../modules/gbif/species/taxonMedia";
 
 describe("Test GBIF Species API", () => {
   it("Get TakonKey using /species/match", (done) => {

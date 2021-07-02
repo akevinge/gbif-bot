@@ -1,6 +1,6 @@
 import { assert } from "chai";
-import { compositeOccMap } from "../modules/maps/compositeOccMap";
-import { getTaxonKeyBySciName } from "../modules/species/matchSp";
+import { compositeOccMap } from "../modules/gbif/maps/compositeOccMap";
+import { getTaxonKeyBySciName } from "../modules/gbif/species/matchSp";
 import { postUploadImage } from "../modules/image-upload/imgbb";
 
 describe("Test GBIF Map API", () => {

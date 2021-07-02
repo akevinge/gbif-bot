@@ -1,8 +1,8 @@
 import { Message, MessageEmbed } from "discord.js";
 import { embedPagination } from "./pagination";
-import { TaxonEmbedData } from "../../types/TaxonMedia";
-import { OccurrenceEmbedData } from "../../types/OccurrenceMedia";
-import { embedColor } from "../../lib/settings";
+import { TaxonEmbedData } from "../../../types/gbif/TaxonMedia";
+import { OccurrenceEmbedData } from "../../../types/gbif/OccurrenceMedia";
+import { embedColor } from "../../../lib/settings";
 
 export const taxonImageEmbedBuilder = ({
   identifier,

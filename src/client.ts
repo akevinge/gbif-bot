@@ -1,11 +1,12 @@
 import { Client } from "discord.js";
 import { botToken, isProduction } from "./lib/constants";
 import { prefix } from "./lib/settings";
-import { Command, commandNames } from "./modules/commands/commands";
-import { commandSwitch } from "./modules/handlers/commandSwitch";
+import { commandArray } from "./types/Command";
+import { commandSwitch } from "./general/commandSwitch";
 import { formatGenusAndSpeciesName } from "./utils";
 
 const client = new Client();
+
 client.on("message", (message) => {
   const { content, channel } = message;
   if (content.startsWith(prefix)) {
@@ -16,7 +17,8 @@ client.on("message", (message) => {
       content.indexOf(" ") !== -1
         ? formatGenusAndSpeciesName(content.slice(content.indexOf(" ") + 1))
         : undefined;
-    if (commandNames.includes(command)) {
+
+    if ((commandArray as any as string[]).includes(command)) {
       commandSwitch({ message, command: command as Command, query });
     } else {
       channel.send("Please provide a valid command");

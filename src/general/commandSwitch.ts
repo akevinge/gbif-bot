@@ -1,8 +1,7 @@
 import { Message } from "discord.js";
-import { Command } from "../commands/commands";
 import { helpHandler } from "./generalHandler";
-import { imageHandler } from "./imageHandler";
-import { rangeHandler } from "./rangeHandler";
+import { imageHandler } from "../modules/gbif/handlers/imageHandler";
+import { rangeHandler } from "../modules/gbif/handlers/rangeHandler";
 
 export const commandSwitch = ({
   message: { channel },

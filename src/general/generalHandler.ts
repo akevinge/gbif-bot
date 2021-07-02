@@ -1,5 +1,5 @@
 import { Message } from "discord.js";
-import { helpEmbedBuilder } from "../embeds/general";
+import { helpEmbedBuilder } from "./generalEmbeds";
 
 export const helpHandler: CommandHandler = ({ channel }: Message) => {
   channel.send(helpEmbedBuilder());
