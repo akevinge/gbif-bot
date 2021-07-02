@@ -32,11 +32,7 @@ client.on("ready", () => {
     },
     status: "online",
   });
-  if (isProduction) {
-    client.user
-      ?.setAvatar("https://unsplash.com/photos/9a9Xu9lXA7A")
-      .catch((err) => console.log("Error setting avatar"));
-  }
+
   console.log("Bot running");
 });
 
