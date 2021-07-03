@@ -1,6 +1,6 @@
 export const prefix: string = ".";
-export const limitKingdom = "Animalia";
-export const limitPhylum = "Arthopoda";
+export const limitKingdom: string | undefined = "Animalia";
+export const limitPhylum: string | undefined = undefined;
 export const mapTileType: "hex" | "square" = "hex";
 export const mapStyle:
   | "purpleHeat.point "

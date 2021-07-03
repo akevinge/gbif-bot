@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
-import { OccurrenceEmbedData } from "../../types/OccurrenceMedia";
-import { TaxonEmbedData } from "../../types/TaxonMedia";
+import { OccurrenceEmbedData } from "../../../types/gbif/OccurrenceMedia";
+import { TaxonEmbedData } from "../../../types/gbif/TaxonMedia";
 import {
   imageEmbedSender,
   occurrenceImageEmbedBuilder,

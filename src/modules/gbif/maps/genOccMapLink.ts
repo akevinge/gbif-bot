@@ -1,6 +1,6 @@
-import { gBifBaseApiUrlV2 } from "../../lib/constants";
-import { mapStyle, mapTileType } from "../../lib/settings";
-import { mapSize } from "../../lib/constants";
+import { gBifBaseApiUrlV2 } from "../../../lib/constants";
+import { mapStyle, mapTileType } from "../../../lib/settings";
+import { mapSize } from "../../../lib/constants";
 
 type GenerateMapParams = {
   taxonKey: string | number;

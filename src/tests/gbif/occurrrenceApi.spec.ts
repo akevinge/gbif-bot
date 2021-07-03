@@ -1,6 +1,8 @@
-import { getTaxonKeyBySciName } from "../modules/species/matchSp";
+import { config } from "dotenv";
+config();
+import { getTaxonKeyBySciName } from "../../modules/gbif/species/matchSp";
 import { assert } from "chai";
-import { getOccurrenceMedia } from "../modules/occurances/occurrenceMedia";
+import { getOccurrenceMedia } from "../../modules/gbif/occurances/occurrenceMedia";
 
 describe("Test GBIF Occurrrence API", () => {
   it("Get taxon media using /occurrence/search and /species/match for taxonKey", (done) => {

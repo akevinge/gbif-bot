@@ -1,6 +1,6 @@
 import { rangeEmbedBuilder } from "../embeds/range";
-import { postUploadImage as imgurUpload } from "../image-upload/imgur";
-import { postUploadImage as imgBbUpload } from "../image-upload/imgbb";
+import { postUploadImage as imgurUpload } from "../../image-upload/imgur";
+import { postUploadImage as imgBbUpload } from "../../image-upload/imgbb";
 import { compositeOccMap } from "../maps/compositeOccMap";
 import { getTaxonKeyBySciName } from "../species/matchSp";
 
@@ -14,8 +14,14 @@ export const rangeHandler: CommandHandlerWQuery = async (
     const map = await compositeOccMap({ taxonKey });
     if (map) {
       const link =
-        (await imgurUpload({ image: map, title: scientificName })) ||
-        (await imgBbUpload({ image: map, title: scientificName }));
+        (await imgurUpload({
+          image: (await map.getBase64Async("image/png")).slice(22),
+          title: scientificName,
+        })) ||
+        (await imgBbUpload({
+          image: (await map.getBase64Async("image/png")).slice(22),
+          title: scientificName,
+        }));
 
       if (link) {
         channel.send(rangeEmbedBuilder({ image: link, scientificName }));

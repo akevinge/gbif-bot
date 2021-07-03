@@ -1,6 +1,6 @@
 import { genOccMapLinkWithTaxonKey } from "./genOccMapLink";
 import Jimp from "jimp";
-import { pxMapSize } from "../../lib/constants";
+import { pxMapSize } from "../../../lib/constants";
 import { genWorldMap } from "./genWorldMap";
 
 const genMapLinks = ({ taxonKey }: { taxonKey: string | number }): string[] => {

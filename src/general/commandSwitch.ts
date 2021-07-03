@@ -1,8 +1,8 @@
 import { Message } from "discord.js";
-import { Command } from "../commands/commands";
 import { helpHandler } from "./generalHandler";
-import { imageHandler } from "./imageHandler";
-import { rangeHandler } from "./rangeHandler";
+import { imageHandler } from "../modules/gbif/handlers/imageHandler";
+import { rangeHandler } from "../modules/gbif/handlers/rangeHandler";
+import { iNatImageHandler } from "../modules/iNat/handlers/iNatImageHandler";
 
 export const commandSwitch = ({
   message: { channel },
@@ -14,6 +14,7 @@ export const commandSwitch = ({
   command: Command;
   query: string | undefined;
 }) => {
+  const invalidQueryMsg = "Please provide a valid scientific name";
   switch (command) {
     case "help":
       helpHandler(message);
@@ -22,14 +23,21 @@ export const commandSwitch = ({
       if (query) {
         imageHandler(message, query);
       } else {
-        channel.send("Please provide a valid scientific name");
+        channel.send(invalidQueryMsg);
       }
       break;
     case "range":
       if (query) {
         rangeHandler(message, query);
       } else {
-        channel.send("Please provide a valid scientific name");
+        channel.send(invalidQueryMsg);
+      }
+      break;
+    case "image2":
+      if (query) {
+        iNatImageHandler(message, query);
+      } else {
+        channel.send(invalidQueryMsg);
       }
       break;
   }
