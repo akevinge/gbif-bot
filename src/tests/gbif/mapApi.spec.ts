@@ -1,7 +1,9 @@
+import { config } from "dotenv";
+config();
 import { assert } from "chai";
-import { compositeOccMap } from "../modules/gbif/maps/compositeOccMap";
-import { getTaxonKeyBySciName } from "../modules/gbif/species/matchSp";
-import { postUploadImage } from "../modules/image-upload/imgbb";
+import { compositeOccMap } from "../../modules/gbif/maps/compositeOccMap";
+import { getTaxonKeyBySciName } from "../../modules/gbif/species/matchSp";
+import { postUploadImage } from "../../modules/image-upload/imgbb";
 
 describe("Test GBIF Map API", () => {
   it("generate map link", (done) => {
