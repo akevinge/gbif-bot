@@ -14,8 +14,14 @@ export const rangeHandler: CommandHandlerWQuery = async (
     const map = await compositeOccMap({ taxonKey });
     if (map) {
       const link =
-        (await imgurUpload({ image: map, title: scientificName })) ||
-        (await imgBbUpload({ image: map, title: scientificName }));
+        (await imgurUpload({
+          image: (await map.getBase64Async("image/png")).slice(22),
+          title: scientificName,
+        })) ||
+        (await imgBbUpload({
+          image: (await map.getBase64Async("image/png")).slice(22),
+          title: scientificName,
+        }));
 
       if (link) {
         channel.send(rangeEmbedBuilder({ image: link, scientificName }));

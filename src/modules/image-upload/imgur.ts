@@ -3,7 +3,7 @@ import { imgurBaseApiUrlV3, imgurClientID } from "../../lib/constants";
 import { JsonFetchWrapper } from "../../utils";
 
 type PostUploadImageParams = {
-  image: Jimp;
+  image: string;
   title: string;
 };
 
@@ -23,7 +23,7 @@ export const postUploadImage = async ({
     },
 
     body: {
-      image: (await image.getBase64Async("image/png")).slice(22),
+      image,
       type: "base64",
       title,
     },

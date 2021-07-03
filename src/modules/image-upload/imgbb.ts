@@ -4,7 +4,7 @@ import { imgBbApiKey, imgBbBaseApiUrlV1 } from "../../lib/constants";
 import { JsonFetchWrapper } from "../../utils";
 
 type PostUploadImageParams = {
-  image: Jimp;
+  image: string;
   title: string;
 };
 
@@ -13,7 +13,7 @@ export const postUploadImage = async ({
   title,
 }: PostUploadImageParams): Promise<string | null> => {
   const formData = new FormData();
-  formData.append("image", (await image.getBase64Async("image/png")).slice(22));
+  formData.append("image", image);
   formData.append("name", title);
   return JsonFetchWrapper<{ data: { url: string } }>(
     `${imgBbBaseApiUrlV1}/upload?key=${imgBbApiKey}`,
