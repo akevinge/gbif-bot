@@ -14,6 +14,11 @@ export const helpEmbedBuilder = (): MessageEmbed => {
       {
         name: ".range",
         value: "Displays a distribution map for the given scientific name",
+      },
+      {
+        name: ".image2",
+        value:
+          "Displays iNaturalist occurrence images for the given scientific name",
       }
     );
 
