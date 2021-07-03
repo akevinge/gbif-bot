@@ -1,6 +1,10 @@
 export const isProduction = process.env.NODE_ENV === "production";
+
 export const gBifBaseApiUrlV1 = "https://api.gbif.org/v1";
 export const gBifBaseApiUrlV2 = "https://api.gbif.org/v2";
+
+export const iNatBaseApiUrlV1 = "https://api.inaturalist.org/v1";
+export const iNatWebTaxaUrl = "https://www.inaturalist.org/taxa";
 
 export const imgurBaseApiUrlV3 = "https://api.imgur.com/3";
 export const imgurClientID = process.env.IMGUR_CLIENT_ID;
