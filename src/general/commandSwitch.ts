@@ -3,6 +3,7 @@ import { helpHandler } from "./generalHandler";
 import { imageHandler } from "../modules/gbif/handlers/imageHandler";
 import { rangeHandler } from "../modules/gbif/handlers/rangeHandler";
 import { iNatImageHandler } from "../modules/iNat/handlers/iNatImageHandler";
+import { iNatRangeHandler } from "../modules/iNat/handlers/iNatRangeHandler";
 
 export const commandSwitch = ({
   message: { channel },
@@ -36,6 +37,13 @@ export const commandSwitch = ({
     case "image2":
       if (query) {
         iNatImageHandler(message, query);
+      } else {
+        channel.send(invalidQueryMsg);
+      }
+      break;
+    case "range2":
+      if (query) {
+        iNatRangeHandler(message, query);
       } else {
         channel.send(invalidQueryMsg);
       }
