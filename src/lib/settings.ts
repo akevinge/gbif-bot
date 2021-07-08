@@ -1,8 +1,8 @@
 export const prefix: string = ".";
-export const limitKingdom: string | undefined = "Animalia";
-export const limitPhylum: string | undefined = undefined;
-export const mapTileType: "hex" | "square" = "hex";
-export const mapStyle:
+export const gbifLimitKingdom: string | undefined = "Animalia";
+export const gbifLimitPhylum: string | undefined = undefined;
+export const gbifMapTileType: "hex" | "square" = "hex";
+export const gbifMapStyle:
   | "purpleHeat.point "
   | "blueHeat.point"
   | "orangeHeat.point"
@@ -24,3 +24,5 @@ export const mapStyle:
   | "orange.marker "
   | "outline.poly" = "classic.poly";
 export const embedColor = 0x0fdb68;
+
+export const iNatObservationMapColor = "red";
