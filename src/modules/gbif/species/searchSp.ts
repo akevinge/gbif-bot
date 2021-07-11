@@ -1,5 +1,5 @@
 import { gBifBaseApiUrlV1 } from "../../../lib/constants";
-import { limitKingdom } from "../../../lib/settings";
+import { gbifLimitKingdom } from "../../../lib/settings";
 import { JsonFetchWrapper } from "../../../utils";
 
 type Result = {
@@ -18,8 +18,8 @@ export const filterSpForTaxonKey = async ({
 }): Promise<string | undefined> => {
   return searchSp({ query }).then((data) => {
     if (data) {
-      if (limitKingdom) {
-        return data.find(({ kingdom }) => kingdom === limitKingdom)?.nubKey;
+      if (gbifLimitKingdom) {
+        return data.find(({ kingdom }) => kingdom === gbifLimitKingdom)?.nubKey;
       } else {
         return data[0].nubKey;
       }
