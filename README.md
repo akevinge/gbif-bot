@@ -4,7 +4,7 @@
    ```sh
    git clone https://github.com/innub/gbif-bot.git
    ```
-2. Install packages
+2. Install packages, run in base directory
    ```sh
    yarn
    ```
