@@ -44,5 +44,5 @@ npm i -g pm2
 2. Run:
 
 ```sh
-yarn pm2
+npm run pm2
 ```
