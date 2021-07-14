@@ -6,7 +6,7 @@
    ```
 2. Install packages, run in base directory:
    ```sh
-   yarn
+   npm i
    ```
 3. Create a .env file in base directory
    _See **.env.example** and follow the corresponding format._
