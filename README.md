@@ -18,19 +18,19 @@
 Run the development version:
 
 ```sh
-yarn dev
+npm run dev
 ```
 
-Compile Skittle Bot by executing the following:
+Compile:
 
 ```sh
-yarn build
+npm run build
 ```
 
 Run the compiled version:
 
 ```sh
-yarn start
+npm run start
 ```
 
 ### Running with pm2
